@@ -20,9 +20,7 @@ const decisions = () => (
           veritatis commodi excepturi est nostrum ducimus non obcaecati illum.
           Doloribus, assumenda voluptas?
         </p>
-        <Button to="/solution" state={{ choice: "Weighted: multiple tests" }}>
-          It me
-        </Button>
+        <Button to="/weighted-multiple">It me</Button>
       </Choice>
       <Choice>
         <h2>ii. Weighted: specific percentage</h2>
