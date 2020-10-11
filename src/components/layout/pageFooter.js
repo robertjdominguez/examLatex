@@ -10,7 +10,7 @@ const PageFooter = () => (
     <h4>October 2020</h4>
     <h4>
       <Link to="https://www.dominguezdev.com" target="_blank">
-        Built by...
+        Implementation by...
       </Link>
     </h4>
   </Heading>

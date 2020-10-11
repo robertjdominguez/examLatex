@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import PageHeader from "../layout/pageHeader"
 import PageFooter from "../layout/pageFooter"
@@ -35,6 +36,12 @@ const WeightedMult = () => {
 
   return (
     <div>
+      <Helmet>
+        <link
+          href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
+          rel="stylesheet"
+        />
+      </Helmet>
       <Layout>
         <PageHeader />
         <SolutionHeading>
@@ -100,18 +107,18 @@ const SolutionHeading = styled.h2`
 const Rationale = styled.div`
   display: grid;
   h3 {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 400;
     margin-top: 10px;
   }
   p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 `
 
 const LaTeX = styled.div`
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   place-self: center;
   font-size: 0.75rem;
 `
@@ -119,7 +126,7 @@ const LaTeX = styled.div`
 const Inputs = styled.div`
   display: grid;
   h3 {
-    font-size: 0.75em;
+    font-size: 0.9em;
     font-weight: 400;
     margin-top: 10px;
   }
@@ -129,13 +136,13 @@ const Inputs = styled.div`
     padding-left: 10;
 
     li {
-      font-size: 0.6rem;
+      font-size: 0.8rem;
     }
   }
 
   input {
     font-family: "Old Standard TT", serif;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     margin-left: 10px;
     border: none;
     border-bottom: solid 1px black;
@@ -172,7 +179,7 @@ const SolutionText = styled.div`
   }
 
   p {
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   strong {
