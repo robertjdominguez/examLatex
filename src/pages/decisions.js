@@ -16,20 +16,20 @@ const decisions = () => (
       <Choice>
         <h2>i. Weighted: multiple tests</h2>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
-          minus excepturi laudantium quas, sed quo. Itaque cupiditate eum,
-          veritatis commodi excepturi est nostrum ducimus non obcaecati illum.
-          Doloribus, assumenda voluptas?
+          Blackbaud has a great feature that allows for a test to count <i>N</i>
+          -times the value of a single test. If you want a test to count
+          "double" or "triple" and you use weighted grades, this is your
+          solution.
         </p>
         <Button to="/weighted-multiple">It me</Button>
       </Choice>
       <Choice>
         <h2>ii. Weighted: specific percentage</h2>
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
-          minus excepturi laudantium quas, sed quo. Itaque cupiditate eum,
-          veritatis commodi excepturi est nostrum ducimus non obcaecati illum.
-          Doloribus, assumenda voluptas?
+          In this scenario, you're using weighted grades and want the exam to
+          count for a specific percentage. If you're thinking back to the old
+          days, that means upper school exams would count for 20% and all other
+          categories would equal to 80%.
         </p>
         <Button
           to="/solution"
@@ -119,7 +119,6 @@ const Button = styled(Link)`
   text-align: center;
   transition: ease-in-out 0.3s;
   max-width: 50%;
-  place-self: left;
 
   &:hover {
     color: white;

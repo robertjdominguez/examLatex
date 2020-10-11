@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import { motion } from "framer-motion"
@@ -16,17 +16,26 @@ const WeightedMult = () => {
   const [final, setFinal] = useState(null)
   const [message, setMessage] = useState(null)
 
+  // Formula
+  const formula = `$$\\dfrac {MP}{100M + 100N}$$`
+
   //   Calc
   const calcTest = () => {
     setFinal(
       Math.round(((input.m * input.p) / (100 * input.m + 100 * input.n)) * 100)
     )
-    final <= 20
-      ? setMessage("With the above values, you're good!")
-      : setMessage(
-          "This exam is worth more than 20%. You need to adjust the number of tests for which this will count."
-        )
   }
+
+  // useEffect to check/update state for message
+  useEffect(() => {
+    if (final <= 20) {
+      setMessage(`This is good news! You don't have to change anything.`)
+    } else {
+      setMessage(
+        `Because this value is greater than 20%, you need to reduce the number of tests for which your exam will count.`
+      )
+    }
+  }, [final, message])
 
   //   Elegant AF change handler for inputs
   const handleInputChange = e => {
@@ -63,7 +72,7 @@ const WeightedMult = () => {
               your final exam counts is
             </p>
             <LaTeX>
-              <Latex displayMode={true}>$$(MP) \over (100M + 100N)$$</Latex>
+              <Latex displayMode={true}>{formula}</Latex>
             </LaTeX>
           </Rationale>
           <Inputs>
