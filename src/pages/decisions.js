@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import styled from "styled-components"
 import PageHeader from "../components/layout/pageHeader"
 import PageFooter from "../components/layout/pageFooter"
+import { motion } from "framer-motion"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
@@ -10,7 +11,7 @@ import SEO from "../components/seo"
 const decisions = () => (
   <Layout>
     <PageHeader />
-    <Heading>
+    <Heading initial={{ opacity: 0, y: -1000 }} animate={{ opacity: 1, y: 0 }}>
       <h1 style={{ gridColumn: `1 / -1` }}>1. Weighted or Total Points?</h1>
       <Choice>
         <h2>i. Weighted: multiple tests</h2>
@@ -68,11 +69,11 @@ const decisions = () => (
 
 export default decisions
 
-const Heading = styled.div`
+const Heading = styled(motion.div)`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
-  padding-top: 10vh;
+  padding-top: 5vh;
   h1 {
     font-size: 1.2rem;
     font-weight: 800;
@@ -84,7 +85,7 @@ const Heading = styled.div`
   }
 `
 
-const Choice = styled.div`
+const Choice = styled(motion.div)`
   display: grid;
   margin-bottom: 5vh;
   align-content: space-between;

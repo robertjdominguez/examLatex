@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { Helmet } from "react-helmet"
 import styled from "styled-components"
+import { motion } from "framer-motion"
+
 import PageHeader from "../layout/pageHeader"
 import PageFooter from "../layout/pageFooter"
 
@@ -44,52 +46,57 @@ const WeightedMult = () => {
       </Helmet>
       <Layout>
         <PageHeader />
-        <SolutionHeading>
-          2. Let's get your sorted - Weighted: Multiple Tests
-        </SolutionHeading>
-        <Rationale>
-          <h3>i. Rationale</h3>
-          <p>
-            Suppose tests count <i>P</i> percent of the final, and you’re giving{" "}
-            <i> N</i> equally weighted tests throughout the semester, and your
-            exam is going to be worth <i>M</i>-times as much as a regular test.
-            Then the percentage of the semester grade for which your final exam
-            counts is
-          </p>
-          <LaTeX>
-            <Latex displayMode={true}>$$(MP) \div (100M + 100N)$$</Latex>
-          </LaTeX>
-        </Rationale>
-        <Inputs>
-          <h3>ii. I don't care: give me the numbers!</h3>
-          <ol>
-            <li>
-              Currently, what’s the weight (percentage) of your tests?{" "}
-              <input type="number" name="p" onChange={handleInputChange} />
-            </li>
-            <li>
-              How many weighted tests are you giving this semester?{" "}
-              <input type="number" name="n" onChange={handleInputChange} />
-            </li>
-            <li>
-              How many times more do you want this exam to count?{" "}
-              <input type="number" name="m" onChange={handleInputChange} />
-            </li>
-          </ol>
-          {input.m != null ? (
-            <button onClick={calcTest}>Calculate</button>
-          ) : (
-            <div />
-          )}
-        </Inputs>
-        {/* TODO: Hide based on inputs above */}
-        <SolutionText style={final != null ? { opacity: 1 } : { opacity: 0 }}>
-          <h3>iii. What do I do?</h3>
-          <p>
-            Based on the information you entered, your exam should count for{" "}
-            <strong>{final}%</strong> of the final grade. {message}
-          </p>
-        </SolutionText>
+        <Container
+          initial={{ opacity: 0, x: 1000 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
+          <SolutionHeading>
+            2. Let's get your sorted - Weighted: Multiple Tests
+          </SolutionHeading>
+          <Rationale>
+            <h3>i. Rationale</h3>
+            <p>
+              Suppose tests count <i>P</i> percent of the final, and you’re
+              giving <i> N</i> equally weighted tests throughout the semester,
+              and your exam is going to be worth <i>M</i>-times as much as a
+              regular test. Then the percentage of the semester grade for which
+              your final exam counts is
+            </p>
+            <LaTeX>
+              <Latex displayMode={true}>$$(MP) \over (100M + 100N)$$</Latex>
+            </LaTeX>
+          </Rationale>
+          <Inputs>
+            <h3>ii. I don't care: give me the numbers!</h3>
+            <ol>
+              <li>
+                Currently, what’s the weight (percentage) of your tests?{" "}
+                <input type="number" name="p" onChange={handleInputChange} />
+              </li>
+              <li>
+                How many weighted tests are you giving this semester?{" "}
+                <input type="number" name="n" onChange={handleInputChange} />
+              </li>
+              <li>
+                How many times more do you want this exam to count?{" "}
+                <input type="number" name="m" onChange={handleInputChange} />
+              </li>
+            </ol>
+            {input.m != null ? (
+              <button onClick={calcTest}>Calculate</button>
+            ) : (
+              <div />
+            )}
+          </Inputs>
+          {/* TODO: Hide based on inputs above */}
+          <SolutionText style={final != null ? { opacity: 1 } : { opacity: 0 }}>
+            <h3>iii. What do I do?</h3>
+            <p>
+              Based on the information you entered, your exam should count for{" "}
+              <strong>{final}%</strong> of the final grade. {message}
+            </p>
+          </SolutionText>
+        </Container>
         <PageFooter />
       </Layout>
     </div>
@@ -97,6 +104,12 @@ const WeightedMult = () => {
 }
 
 export default WeightedMult
+
+const Container = styled(motion.div)`
+  p {
+    color: black;
+  }
+`
 
 const SolutionHeading = styled.h2`
   font-size: 1rem;

@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
 import Layout from "../components/layout/layout"
 import Image from "../components/image"
@@ -10,13 +11,13 @@ import PageFooter from "../components/layout/pageFooter"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Heading>
+    <Heading initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <h1>The Weight of Exams?</h1>
       <h3>The Math People</h3>
       <h4>The Altamont School</h4>
       <h3>October 13, 2020</h3>
     </Heading>
-    <Abstract>
+    <Abstract initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
       <h4>Abstract</h4>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cum
@@ -44,7 +45,7 @@ const IndexPage = () => (
 
 export default IndexPage
 
-const Heading = styled.div`
+const Heading = styled(motion.div)`
   display: grid;
   text-align: center;
   padding-top: 10vh;
@@ -69,7 +70,7 @@ const Heading = styled.div`
   }
 `
 
-const Abstract = styled.div`
+const Abstract = styled(motion.div)`
   display: grid;
   margin-top: 10vh;
   h4 {
