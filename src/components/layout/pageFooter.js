@@ -26,7 +26,7 @@ const Heading = styled.div`
   border-top: solid 1px black;
 
   h4 {
-    font-size: 0.75rem;
+    font-size: 0.5rem;
     margin-top: 10px;
   }
 

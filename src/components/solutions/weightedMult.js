@@ -92,17 +92,20 @@ const WeightedMult = () => {
 export default WeightedMult
 
 const SolutionHeading = styled.h2`
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 800;
   margin-top: 10px;
 `
 
 const Rationale = styled.div`
   display: grid;
   h3 {
-    font-size: 1.2rem;
+    font-size: 0.75rem;
     font-weight: 400;
     margin-top: 10px;
+  }
+  p {
+    font-size: 0.6rem;
   }
 `
 
@@ -110,12 +113,13 @@ const LaTeX = styled.div`
   margin-top: 60px;
   margin-bottom: 60px;
   place-self: center;
+  font-size: 0.75rem;
 `
 
 const Inputs = styled.div`
   display: grid;
   h3 {
-    font-size: 1.2rem;
+    font-size: 0.75em;
     font-weight: 400;
     margin-top: 10px;
   }
@@ -123,11 +127,15 @@ const Inputs = styled.div`
   ol {
     list-style-type: lower-alpha;
     padding-left: 10;
+
+    li {
+      font-size: 0.6rem;
+    }
   }
 
   input {
     font-family: "Old Standard TT", serif;
-    font-size: 1rem;
+    font-size: 0.75rem;
     margin-left: 10px;
     border: none;
     border-bottom: solid 1px black;
@@ -136,7 +144,7 @@ const Inputs = styled.div`
   button {
     border: solid 1px black;
     font-family: "Old Standard TT", serif;
-    font-size: 1.2rem;
+    font-size: 0.75rem;
     background-color: transparent;
     place-self: end;
     padding-right: 40px;
@@ -158,9 +166,13 @@ const SolutionText = styled.div`
   margin-top: 60px;
   transition: ease-in-out 0.3s;
   h3 {
-    font-size: 1.2rem;
+    font-size: 0.75rem;
     font-weight: 400;
     margin-top: 10px;
+  }
+
+  p {
+    font-size: 0.6rem;
   }
 
   strong {

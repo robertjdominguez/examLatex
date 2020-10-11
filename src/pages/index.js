@@ -49,18 +49,21 @@ const Heading = styled.div`
   text-align: center;
   padding-top: 10vh;
   h1 {
-    font-size: 4.5rem;
+    /* font-size: 4.5rem; */
+    font-size: 2.5em;
     font-weight: 800;
   }
 
   h3 {
-    font-size: 2.75rem;
+    /* font-size: 2.75rem; */
+    font-size: 1.5em;
     font-weight: 800;
     margin-top: 0;
   }
 
   h4 {
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
+    font-size: 1em;
     font-weight: 600;
     margin-top: 0;
   }
@@ -75,6 +78,10 @@ const Abstract = styled.div`
     margin-top: 0;
     place-self: center;
   }
+
+  p {
+    font-size: 0.8rem;
+  }
 `
 const Button = styled(Link)`
   display: grid;
@@ -82,7 +89,7 @@ const Button = styled(Link)`
   border: solid 1px black;
   text-decoration: none;
   color: black;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 10px;

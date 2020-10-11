@@ -12,7 +12,7 @@ html {
   font-family: 'Old Standard TT', serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 18px;
+  font-size: calc(1em + 1vw);
   color: var(--black);
   overflow-x: hidden;
 }

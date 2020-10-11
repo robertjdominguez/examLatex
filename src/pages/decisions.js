@@ -74,7 +74,7 @@ const Heading = styled.div`
   grid-gap: 40px;
   padding-top: 10vh;
   h1 {
-    font-size: 1.75rem;
+    font-size: 1.2rem;
     font-weight: 800;
     margin-bottom: 0;
   }
@@ -89,20 +89,25 @@ const Choice = styled.div`
   margin-bottom: 5vh;
   align-content: space-between;
   h1 {
-    font-size: 1.75rem;
+    font-size: 1rem;
     font-weight: 800;
   }
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     margin-top: 10px;
+  }
+
+  p {
+    font-size: 0.8rem;
   }
 `
 
 const Button = styled(Link)`
   display: grid;
   margin-top: 5vh;
+  font-size: 0.8rem;
   border: solid 1px black;
   text-decoration: none;
   color: black;

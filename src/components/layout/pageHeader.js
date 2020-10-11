@@ -20,6 +20,6 @@ const Heading = styled.div`
   border-bottom: solid 1px black;
 
   h4 {
-    font-size: 1rem;
+    font-size: 0.5rem;
   }
 `
