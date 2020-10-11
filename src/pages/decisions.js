@@ -32,7 +32,7 @@ const decisions = () => (
           categories would equal to 80%.
         </p>
         <Button
-          to="/solution"
+          to="/weighted-specific"
           state={{ choice: "Weighted: specific percentage" }}
         >
           It me

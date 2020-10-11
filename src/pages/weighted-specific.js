@@ -17,24 +17,16 @@ const WeightedMult = () => {
   const [message, setMessage] = useState(null)
 
   // Formula
-  const formula = `$$\\dfrac {MP}{100M + 100N}$$`
+  const formula = `$$\\dfrac{(100 - P)R}{100}$$`
 
   //   Calc
   const calcTest = () => {
-    setFinal(
-      Math.round(((input.m * input.p) / (100 * input.m + 100 * input.n)) * 100)
-    )
+    setFinal(Math.round(((100 - input.p) * input.r) / 100))
   }
 
   // useEffect to check/update state for message
   useEffect(() => {
-    if (final <= 20) {
-      setMessage(`This is good news! You don't have to change anything.`)
-    } else {
-      setMessage(
-        `Because this value is greater than 20%, you need to reduce the number of tests for which your exam will count.`
-      )
-    }
+    setMessage(`This category should be reset in your gradebook to ${final}%.`)
   }, [final, message])
 
   //   Elegant AF change handler for inputs
@@ -60,16 +52,16 @@ const WeightedMult = () => {
           animate={{ opacity: 1, x: 0 }}
         >
           <SolutionHeading>
-            2. Let's get your sorted - Weighted: Multiple Tests
+            2. Let's get your sorted - Weighted: Specific Percentage
           </SolutionHeading>
           <Rationale>
             <h3>i. Rationale</h3>
             <p>
-              Suppose tests count <i>P</i> percent of the final, and you’re
-              giving <i> N</i> equally weighted tests throughout the semester,
-              and your exam is going to be worth <i>M</i>-times as much as a
-              regular test. Then the percentage of the semester grade for which
-              your final exam counts is
+              For this scenario, you'll need to add an additional assignment
+              category to your gradebook (presumably called Exam). You'll make
+              your exam worth <i>P</i> percent of your grade. For all other
+              categories, if the previous percentage was <i>R</i>, the new
+              percentage should be
             </p>
             <LaTeX>
               <Latex displayMode={true}>{formula}</Latex>
@@ -79,19 +71,15 @@ const WeightedMult = () => {
             <h3>ii. I don't care: give me the numbers!</h3>
             <ol>
               <li>
-                Currently, what’s the weight (percentage) of your tests?{" "}
+                For what percent do you want your exam to count?{" "}
                 <input type="number" name="p" onChange={handleInputChange} />
               </li>
               <li>
-                How many weighted tests are you giving this semester?{" "}
-                <input type="number" name="n" onChange={handleInputChange} />
-              </li>
-              <li>
-                How many times more do you want this exam to count?{" "}
-                <input type="number" name="m" onChange={handleInputChange} />
+                Choose a category from your gradebook: what was it worth?{" "}
+                <input type="number" name="r" onChange={handleInputChange} />
               </li>
             </ol>
-            {input.m != null ? (
+            {input.r != null ? (
               <button onClick={calcTest}>Calculate</button>
             ) : (
               <div />
@@ -101,8 +89,8 @@ const WeightedMult = () => {
           <SolutionText style={final != null ? { opacity: 1 } : { opacity: 0 }}>
             <h3>iii. What do I do?</h3>
             <p>
-              Based on the information you entered, your exam should count for{" "}
-              <strong>{final}%</strong> of the final grade. {message}
+              {message} You're going to need to repeat this process for your
+              other gradebook categories.
             </p>
           </SolutionText>
         </Container>
